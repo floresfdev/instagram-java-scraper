@@ -175,6 +175,12 @@ public class Instagram {
         return medias;
     }
 
+    public Media[] getMediasArray(String username, int count) throws IOException, InstagramException {
+        List<Media> medias = getMedias(username, count);
+        Media[] mediasArray = medias.toArray(new Media[0]);
+        return mediasArray;
+    }
+
     public Media getMediaByUrl(String url) throws IOException, InstagramException {
         Request request = new Request.Builder()
                 .url(url + "/?__a=1")
