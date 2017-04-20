@@ -62,6 +62,8 @@ public class Media {
             instance.videoLowResolutionUrl = (String) ((Map) videos.get("low_resolution")).get("url");
             instance.videoStandardResolutionUrl = (String) ((Map) videos.get("standard_resolution")).get("url");
             instance.videoLowBandwidthUrl = (String) ((Map) videos.get("low_bandwidth")).get("url");
+            /* Fix issue with videoViews = 0 */
+            instance.videoViews = ((Double) mediaMap.get("video_views")).intValue();
         }
 
         instance.previewCommentsList = new ArrayList<Comment>();
